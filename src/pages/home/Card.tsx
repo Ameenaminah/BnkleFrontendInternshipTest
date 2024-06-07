@@ -3,6 +3,7 @@ import { CardResponse } from "../../models.ts";
 import "./home.css";
 import { Link } from "react-router-dom";
 import { useIncrementClickCount } from "../../hooks.ts/index.ts";
+import { formatDate } from "../../components/helper/dateFormat.ts";
 
 interface Prop {
   item: CardResponse;
@@ -36,7 +37,7 @@ export const Card: FC<Prop> = ({ item }) => {
             <p>-</p>
             <p>{item.author.role}</p>
           </div>
-          <p>{item.date}</p>
+          <p>{formatDate(item.date)}</p>
         </footer>
       </div>
     </Link>

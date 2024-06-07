@@ -12,7 +12,7 @@ export const useIncrementClickCount = (): useIncrementClickCount => {
 
   const incrementClickCountAction = useCallback(
     (data: CardResponse) => {
-      dispatch(incrementClickCount({ cardId: data.id, countIncrement: 1 }));
+      dispatch(incrementClickCount({ card: data, countIncrement: 1 }));
     },
     [dispatch]
   );
