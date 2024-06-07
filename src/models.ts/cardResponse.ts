@@ -8,6 +8,7 @@ export interface CardResponse {
   content: string;
   thumbnail: ThumbnailResponse;
   author: AuthorResponse;
+  clickCount?: number;
 }
 
 export const emptyCardResponse: CardResponse = {
@@ -17,4 +18,5 @@ export const emptyCardResponse: CardResponse = {
   content: "",
   thumbnail: { ...emptyThumbnailResponse },
   author: { ...emptyAuthorResponse },
+  clickCount: 0,
 };
