@@ -1,0 +1,56 @@
+.error-container {
+  background-color: white;
+  width: 60%;
+  height: 60%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.title {
+  font-size: 4rem;
+  margin-block: 3em;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  margin-top: 2em;
+}
+
+.button {
+  background: var( --hover-color);
+  color: white;
+  padding-inline: 1rem;
+  padding-block: 0.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5em;
+  cursor: pointer;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+}
+.button:hover,
+.button:active {
+  background-color: rgba(52, 151, 249, 0.12);
+  color: var(--text-color);
+}
+
+/* Not Found */
+.not-found-image {
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+}
+.not-found-text {
+  text-align: center;
+  margin-bottom: 0.5em;
+  padding-bottom: 1em;
+}

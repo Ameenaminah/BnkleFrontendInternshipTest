@@ -14,80 +14,68 @@
   --bg-color: #1f242d;
   --title-color: #101729;
   --text-color: #677489;
+  --hover-color: #C53FA9;
 }
 
 html {
-  font-size: 62.5%;
-  /* overflow-x: hidden;
-  scroll-behavior: smooth; */
+  font-size: 50.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background: var(--bg-color);
+  width: 100%;
 }
 body {
-  background: var(--bg-color);
+  background: white;
   color: var(--text-color);
   max-width: 1200px;
-  width: 100%;
-  height: 80vh;
-  min-height: 100vh;
+  width: 90%;
+  height: 100vh;
   margin: auto;
-  padding: 10em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
   color: var(--title-color);
+  font-family: "Lato", sans-serif;
 }
-
 section {
-  width: 100%;
+  width: 95%;
   background-color: white;
-  min-height: 75vh;
+  height: 80vh;
   margin: auto;
+  overflow-x: hidden;
+  padding-block: 2em;
+  padding-inline: 9em;
+}
+.spinner-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 50%;
+  display: flex;
+  justify-content: center;
 }
 
-@media screen and (min-width: 800px) {
-  section {
-    width: 80%;
-    background-color: white;
-    min-height: 50vh;
-    margin: auto;
+@media screen and (min-width: 850px) {
+  html {
+    font-size: 62.5%;
   }
   .home-container {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    margin: auto;
+  }
+  .card-container {
+    overflow: hidden;
   }
 }
 
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-  .navbar {
-    position: absolute;
-    top: 100%;
-    right: 2%;
-    width: 25%;
-    height: 25vh;
-    background-color: rgba(0, 0, 0, 0.9);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    transition: all 0.5s ease;
-  }
-
-  .navbar a {
-    display: block;
-    font-size: 2rem;
-    margin: 3rem 0;
-    padding: 0 2em;
-    text-align: center;
-    transition: all 0.5s ease;
-  }
-
-  .navbar a:hover {
-    color: red;
-    transform: translateY(5px);
-  }
-  .navbar.active {
-    color: red;
+@media (min-width: 800px) {
+  html {
+    font-size: 62.5%;
   }
 }

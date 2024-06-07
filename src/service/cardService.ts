@@ -3,6 +3,7 @@ import { IRestService } from "./restService.ts";
 
 export interface ICardService {
   getCards(): Promise<CardResponse[] | null>;
+  getCard(id: number): Promise<CardResponse | null>;
 }
 
 export class CardService implements ICardService {
@@ -12,6 +13,16 @@ export class CardService implements ICardService {
     try {
       const url = "/posts";
       return await this.restService.get<CardResponse[] | null>(url);
+    } catch (error) {
+      console.error(`Unable to get data: ${error}`);
+    }
+    return null;
+  }
+
+  async getCard(id: number): Promise<CardResponse | null> {
+    try {
+      const url = `/posts/${id}`;
+      return await this.restService.get<CardResponse | null>(url);
     } catch (error) {
       console.error(`Unable to get data: ${error}`);
     }

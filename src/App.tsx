@@ -5,19 +5,19 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import { Home, Analytics } from "./pages";
-import { Layout } from "./components/Layout";
-
-// import { Layout, NotFound } from "./pages";
+import { Cards, Analytics, CardDetail } from "./pages";
+import { Layout, NotFound } from "./components";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
+        <Route path="cards" element={<Cards />}>
+          <Route path=":id" element={<CardDetail />} />
+        </Route>
         <Route path="analytics" element={<Analytics />} />
       </Route>
-      {/* <Route path="*" element={<NotFound />} /> */}
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );

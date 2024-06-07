@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { CardResponse } from "../../models.ts";
 import "./home.css";
+import { Link } from "react-router-dom";
 
 interface Prop {
   item: CardResponse;
@@ -8,10 +9,14 @@ interface Prop {
 
 export const Card: FC<Prop> = ({ item }) => {
   return (
-    <div className="card-container">
+    <Link to={item.id.toString()} className="card-container">
       <img src={item.thumbnail.small} alt="" />
       <div className="content-container">
-        <h1 className="title">{item.title}</h1>
+        <div className="author-container">
+          <div className="circle blue" />
+          <div className="circle yellow" />
+        </div>
+        <h1 className="card-title">{item.title}</h1>
         <p className="content">{item.content}</p>
         <footer>
           <div className="author-container">
@@ -22,6 +27,6 @@ export const Card: FC<Prop> = ({ item }) => {
           <p>{item.date}</p>
         </footer>
       </div>
-    </div>
+    </Link>
   );
 };

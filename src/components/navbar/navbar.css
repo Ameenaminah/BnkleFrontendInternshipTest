@@ -1,26 +1,19 @@
 .header {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   width: 100%;
-  background-color: var(--bg-color);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 2em 9%;
-  z-index: 100;
+  padding: 4em 10%;
   transition: all 0.5s ease;
-}
-.header-bg {
-  background-color: rgba(0, 0, 0, 0.7);
-  transition: 0.5s;
-  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
 }
 .logo {
   font-size: 2.5rem;
   color: var(--text-color);
   font-weight: 600;
-  cursor: default;
+  cursor: pointer;
 }
 
 .navbar {
@@ -32,10 +25,11 @@
   color: var(--text-color);
   margin-left: 5em;
   transition: all 0.5s ease;
+   cursor: pointer;
 }
 .navbar a:hover,
 .navbar a.active {
-  color: green;
+  color: var( --hover-color);
 }
 .unActive {
   color: var(--text-color);

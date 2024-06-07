@@ -1,8 +1,13 @@
-export const links = [
+export interface Link {
+  id: number;
+  link: string;
+  to: string;
+}
+export const links: Link[] = [
   {
     id: 1,
     link: "Home",
-    to: ".",
+    to: "cards",
   },
   {
     id: 2,

@@ -1,7 +1,5 @@
 .home-container {
   display: grid;
-  margin: auto;
-  /* padding: 4em; */
   gap: 4em;
   justify-content: center;
   align-items: center;
@@ -11,37 +9,107 @@
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   box-shadow: 0 0 1rem var(--bg-color);
-  overflow: hidden;
-  width: 80%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
 }
 .card-container img {
   width: 100%;
-  height: 40%;
+  height: 45%;
   background-size: cover;
   background-size: cover;
   background-position: center;
   object-fit: cover;
   transition: 0.5s ease;
+  cursor: pointer;
 }
 .card-container:hover img {
   transform: scale(1.1);
 }
+.circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+}
+.card-title {
+  margin-top: 0.75em;
+}
+.blue {
+  background-color: #87ceeb;
+}
+.yellow {
+  background-color: #e2e279;
+}
+
 .content-container {
-  padding-block: 1.5em;
   padding-inline: 2em;
+  height: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .content {
-  padding-block: 1.5em;
+  padding-block: 2em;
+  text-align: justify;
 }
 footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 .author-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 2px;
+}
+
+.modal-container {
+  background-color: white;
+  width: 35%;
+  height: 60%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.closeX {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding-inline-end: 1.5em;
+  color: var(--bg-color);
+  opacity: 0.6;
+  height: 10%;
+ align-items: center;
+}
+.modal-container img {
+  width: 100%;
+  height: 55%;
+  background-size: cover;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+.modal-content {
+  padding-inline: 2em;
+  height: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.avatar img {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+    background-size: cover;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+  transition: 0.5s ease;
 }
