@@ -23,7 +23,12 @@ export const Card: FC<Prop> = ({ item }) => {
       onClick={handleClickCount}
       key={item.id}
     >
-      <img src={item.thumbnail.small} alt="" />
+      <div className="img">
+        <img src={item.thumbnail.small} alt="" />
+        <div className="learn-more-container">
+          <h2 className="learn-more-text">Learn more</h2>
+        </div>
+      </div>
       <div className="content-container">
         <div className="author-container">
           <div className="circle blue" />
