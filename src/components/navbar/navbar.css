@@ -1,12 +1,12 @@
 .header {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 3em;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4em 10%;
+  padding-top: 3em;
   transition: all 0.5s ease;
 }
 .logo {
@@ -25,11 +25,11 @@
   color: var(--text-color);
   margin-left: 5em;
   transition: all 0.5s ease;
-   cursor: pointer;
+  cursor: pointer;
 }
 .navbar a:hover,
 .navbar a.active {
-  color: var( --hover-color);
+  color: var(--hover-color);
 }
 .unActive {
   color: var(--text-color);

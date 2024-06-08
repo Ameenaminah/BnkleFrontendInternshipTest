@@ -19,7 +19,7 @@
 }
 
 html {
-  font-size: 50.5%;
+  /* font-size: 20.5%; */
   overflow-x: hidden;
   scroll-behavior: smooth;
   background: var(--bg-color);
@@ -47,9 +47,7 @@ section {
   background-color: white;
   height: 80vh;
   margin: auto;
-  overflow-x: hidden;
-  padding-block: 2em;
-  padding-inline: 9em;
+  padding-inline: 2em;
 }
 .spinner-container {
   position: absolute;
@@ -69,10 +67,10 @@ section {
   .home-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    margin: auto;
+     grid-column-gap: 0; 
   }
-  .card-container {
-    overflow: hidden;
+  section {
+    padding-inline: 9em;
   }
 }
 
