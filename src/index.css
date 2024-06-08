@@ -19,12 +19,13 @@
 }
 
 html {
-  /* font-size: 20.5%; */
+  font-size: 62.5%;
   overflow-x: hidden;
   scroll-behavior: smooth;
   background: var(--bg-color);
   width: 100%;
   color: var(--text-color);
+  border: 5px solid red;
 }
 body {
   background: white;
@@ -36,6 +37,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: scroll;
 }
 
 h1 {
@@ -46,8 +48,7 @@ section {
   width: 95%;
   background-color: white;
   height: 80vh;
-  margin: auto;
-  padding-inline: 2em;
+  padding-inline: 8em;
 }
 .spinner-container {
   position: absolute;
@@ -60,22 +61,26 @@ section {
   justify-content: center;
 }
 
-@media screen and (min-width: 850px) {
-  html {
-    font-size: 62.5%;
-  }
-  .home-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-     grid-column-gap: 0; 
-  }
+@media screen and (min-width: 1045) {
   section {
-    padding-inline: 9em;
+    padding-inline: 8em;
   }
 }
 
-@media (min-width: 800px) {
-  html {
-    font-size: 62.5%;
+@media screen and (min-width: 901px) and (max-width: 1044px) {
+  section {
+    padding-inline: 4em;
+  }
+}
+
+@media screen and (min-width: 670px) and (max-width: 900px) {
+  section {
+    padding-inline: 2em;
+  }
+}
+
+@media (max-width: 851px) {
+  section {
+    padding-inline: 2em;
   }
 }
