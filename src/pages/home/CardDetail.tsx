@@ -1,19 +1,19 @@
-import { useInjectedService } from "../../hooks.ts";
-import { useQuery } from "@tanstack/react-query";
+import { useFetchDetailData, useInjectedService } from "../../hooks.ts";
 import { Link, useParams } from "react-router-dom";
 import { Spinner } from "../../components/Spinner.tsx";
 import { CardNotFound } from "../../components/CardNotFound.tsx";
+import { useCallback } from "react";
 
 export const CardDetail = () => {
   const { id } = useParams();
   const { cardService } = useInjectedService();
 
-  const { isFetching, data: card } = useQuery({
-    queryKey: ["card"],
-    queryFn: async () => {
-      return await cardService.getCard(Number(id));
-    },
-  });
+  const getCardQuery = useCallback(async () => {
+    return await cardService.getCard(Number(id));
+  }, [cardService, id]);
+
+  const { isFetching, data: card } = useFetchDetailData(["card"], getCardQuery);
+
   const cardDoesNotExist = !isFetching && !card;
 
   return (

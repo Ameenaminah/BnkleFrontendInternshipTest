@@ -12,7 +12,7 @@ export const TestWrapper: React.FC<Props> = ({ children }) => {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
-        retry: false,
+        // retry: false,
       },
     },
   });

@@ -1,27 +1,29 @@
-import { useAppSelector, useInjectedService } from "../../hooks.ts/index.ts";
-import { useQuery } from "@tanstack/react-query";
+import {
+  useAppSelector,
+  useFetchData,
+  useInjectedService,
+} from "../../hooks.ts/index.ts";
 import { Card } from "./Card.tsx";
 import { Outlet, useLocation } from "react-router-dom";
 import { Spinner } from "../../components/Spinner.tsx";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setCards } from "../../state/card/cardSlice.ts";
 
 export const Cards = () => {
-const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const { cardService } = useInjectedService();
   const dispatch = useDispatch();
   const location = useLocation();
-  
+
   const { cards } = useAppSelector((s) => s.card.value);
 
-  const { isLoading, data } = useQuery({
-    queryKey: ["cards"],
-    queryFn: async () => {
-      return await cardService.getCards();
-    },
-  });
+  const getCardsQuery = useCallback(async () => {
+    return await cardService.getCards();
+  }, [cardService]);
+
+  const { isLoading, data } = useFetchData(["cards"], getCardsQuery);
 
   useEffect(() => {
     if (data) {
@@ -29,10 +31,9 @@ const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     }
   }, [dispatch, data]);
 
- useEffect(() => {
-   setIsModalOpen(location.pathname.includes("cards/"));
- }, [location.pathname]);
-  
+  useEffect(() => {
+    setIsModalOpen(location.pathname.includes("cards/"));
+  }, [location.pathname]);
 
   return (
     <>

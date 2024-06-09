@@ -3,6 +3,7 @@ import { useAppSelector } from "../../hooks.ts"; // Make sure to use correct pat
 import { Analytics } from "../../pages/index.ts";
 import { TestWrapper } from "../TestWrapper.tsx";
 import { mockItem } from "../../models.ts/index.ts";
+import { Mock } from "vitest";
 
 
 vi.mock("../../hooks.ts", () => ({
@@ -11,7 +12,7 @@ vi.mock("../../hooks.ts", () => ({
 
 describe("Analytics component", () => {
   it("renders loading spinner when cards are loading", () => {
-    useAppSelector.mockReturnValue({ cards: null });
+    (useAppSelector as Mock).mockReturnValue({ cards: null });
 
     render(
       <TestWrapper>
@@ -23,9 +24,9 @@ describe("Analytics component", () => {
   });
 
   it("renders cards when cards are available", () => {
-    useAppSelector.mockReturnValue({
-      cards: [mockItem],
-    });
+     (useAppSelector as Mock).mockReturnValue({
+       cards: [mockItem],
+     });
 
     render(
       <TestWrapper>

@@ -4,7 +4,7 @@ import { FC } from "react";
 
 export const CardNotFound: FC = () => {
   return (
-    <section className="error-container">
+    <section className="error-container" data-testid="CardNotFound">
       <h1 className="title">Card does not exist. Please go back</h1>
       <div className="button-container">
         <Link to={"../../cards"} className="button">

@@ -1,14 +1,14 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, Mock } from "vitest";
 import { Card } from "../../pages/home/Card.tsx";
 import { TestWrapper } from "../TestWrapper.tsx";
 import { useIncrementClickCount } from "../../hooks.ts";
 import { mockItem } from "../../models.ts/mockItem.ts";
 
 vi.mock("../../hooks.ts", () => ({
-  useIncrementClickCount: vi
-    .fn()
-    .mockReturnValue({ incrementClickCount: vi.fn() }),
+  useIncrementClickCount: vi.fn().mockReturnValue({
+    incrementClickCount: vi.fn(),
+  }),
 }));
 
 describe("Card Component", () => {
@@ -31,7 +31,7 @@ describe("Card Component", () => {
 
   it("should handle click event and call incrementClickCount", () => {
     const incrementClickCountMock = vi.fn();
-    useIncrementClickCount.mockReturnValue({
+    (useIncrementClickCount as Mock).mockReturnValue({
       incrementClickCount: incrementClickCountMock,
     });
 
