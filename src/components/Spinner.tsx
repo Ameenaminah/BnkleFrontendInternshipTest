@@ -3,7 +3,7 @@ import { ThreeDots } from "react-loader-spinner";
 
 export const Spinner: FC = () => {
   return (
-    <div className="spinner-container">
+    <div className="spinner-container" data-testid="spinner">
       <ThreeDots
         visible={true}
         height="200"

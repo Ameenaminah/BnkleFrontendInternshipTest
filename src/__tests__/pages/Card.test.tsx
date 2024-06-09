@@ -1,28 +1,17 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
-import { BrowserRouter as Router } from "react-router-dom";
-import { CardResponse } from "../../models.ts/cardResponse.ts";
 import { Card } from "../../pages/home/Card.tsx";
 import { TestWrapper } from "../TestWrapper.tsx";
 import { useIncrementClickCount } from "../../hooks.ts";
+import { mockItem } from "../../models.ts/mockItem.ts";
+
+vi.mock("../../hooks.ts", () => ({
+  useIncrementClickCount: vi
+    .fn()
+    .mockReturnValue({ incrementClickCount: vi.fn() }),
+}));
 
 describe("Card Component", () => {
-  const mockItem: CardResponse = {
-    id: 1,
-    date: 1111111,
-    title: "Test Title",
-    content: "Test content",
-    thumbnail: {
-      small: "https://example.com/image.jpg",
-      large: "https://example.com/image.jpg",
-    },
-    author: {
-      name: "John Doe",
-      role: "Author",
-      avatar: "https://example.com/image.jpg",
-    },
-  };
-
   it("should render the Card component with correct data", () => {
     render(
       <TestWrapper>
@@ -42,17 +31,14 @@ describe("Card Component", () => {
 
   it("should handle click event and call incrementClickCount", () => {
     const incrementClickCountMock = vi.fn();
-
-    beforeEach(() => {
-      vi.mocked(useIncrementClickCount).mockReturnValue({
-        incrementClickCount: incrementClickCountMock,
-      });
+    useIncrementClickCount.mockReturnValue({
+      incrementClickCount: incrementClickCountMock,
     });
 
     render(
-      <Router>
+      <TestWrapper>
         <Card item={mockItem} />
-      </Router>
+      </TestWrapper>
     );
 
     const linkElement = screen.getByRole("link");
