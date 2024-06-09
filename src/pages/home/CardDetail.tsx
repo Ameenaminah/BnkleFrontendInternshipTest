@@ -17,9 +17,9 @@ export const CardDetail = () => {
   const cardDoesNotExist = !isFetching && !card;
 
   return (
-    <>
+    <div className="modal-container">
       {!isFetching && card?.thumbnail.large ? (
-        <div className="modal-container">
+        <>
           <Link to={".."} className="closeX">
             X
           </Link>
@@ -40,12 +40,12 @@ export const CardDetail = () => {
               </div>
             </div>
           </div>
-        </div>
+        </>
       ) : cardDoesNotExist ? (
         <CardNotFound />
       ) : (
         <Spinner />
       )}
-    </>
+    </div>
   );
 };

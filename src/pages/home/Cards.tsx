@@ -9,6 +9,7 @@ import { Spinner } from "../../components/Spinner.tsx";
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setCards } from "../../state/card/cardSlice.ts";
+import { isArrayNullOrEmpty } from "../../components/helper/helper.ts";
 
 export const Cards = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -26,10 +27,10 @@ export const Cards = () => {
   const { isLoading, data } = useFetchData(["cards"], getCardsQuery);
 
   useEffect(() => {
-    if (data) {
+    if (isArrayNullOrEmpty(cards) && data) {
       dispatch(setCards(data));
     }
-  }, [dispatch, data]);
+  }, [dispatch, data, cards]);
 
   useEffect(() => {
     setIsModalOpen(location.pathname.includes("cards/"));
@@ -37,7 +38,10 @@ export const Cards = () => {
 
   return (
     <>
-      <section className={`home-container ${isModalOpen ? "blurred" : ""}`}>
+      <section
+        className={`home-container ${isModalOpen ? "blurred" : ""}`}
+        data-testid="cards"
+      >
         {!isLoading && cards ? (
           cards.map((item) => <Card item={item} key={item.id} />)
         ) : (

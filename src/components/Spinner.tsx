@@ -1,19 +1,12 @@
 import { FC } from "react";
-import { ThreeDots } from "react-loader-spinner";
+import "./styles.css";
 
 export const Spinner: FC = () => {
   return (
     <div className="spinner-container" data-testid="spinner">
-      <ThreeDots
-        visible={true}
-        height="200"
-        width="200"
-        color="var(--bg-color)"
-        radius="30"
-        ariaLabel="three-dots-loading"
-        wrapperStyle={{}}
-        wrapperClass=""
-      />
+      <div className="dot dot1"></div>
+      <div className="dot dot2"></div>
+      <div className="dot dot3"></div>
     </div>
   );
 };

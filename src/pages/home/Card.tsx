@@ -3,7 +3,7 @@ import { CardResponse } from "../../models.ts";
 import "./home.css";
 import { Link } from "react-router-dom";
 import { useIncrementClickCount } from "../../hooks.ts/index.ts";
-import { formatDate } from "../../components/helper/dateFormat.ts";
+import { formatDate } from "../../components/helper/helper.ts";
 
 interface Prop {
   item: CardResponse;
