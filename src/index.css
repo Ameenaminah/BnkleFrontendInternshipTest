@@ -25,7 +25,7 @@ html {
   background: var(--bg-color);
   width: 100%;
   color: var(--text-color);
-  border: 5px solid red;
+   /* padding-top: 5.5em; */
 }
 body {
   background: white;
@@ -43,6 +43,7 @@ body {
 h1 {
   color: var(--title-color);
   font-family: "Lato", sans-serif;
+  font-weight: 900;
 }
 section {
   width: 95%;
@@ -59,6 +60,10 @@ section {
   width: 50%;
   display: flex;
   justify-content: center;
+}
+.blurred {
+  filter: blur(5px);
+  pointer-events: none;
 }
 
 @media screen and (min-width: 1045) {

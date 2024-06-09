@@ -28,9 +28,11 @@ export const CardDetail = () => {
             <h1>{card.title}</h1>
             <p className="content">{card.content}</p>
             <div className="author-container">
-              <div className="avatar">
-                <img src={card.author.avatar} alt="avatar" />
-              </div>
+              {card.author.avatar && (
+                <div className="avatar">
+                  <img src={card.author.avatar} alt="avatar" />
+                </div>
+              )}
               <div className="author-container">
                 <p>{card.author.name}</p>
                 <p>-</p>

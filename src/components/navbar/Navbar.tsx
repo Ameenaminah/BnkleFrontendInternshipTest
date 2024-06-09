@@ -8,7 +8,7 @@ export const Navbar: FC = () => {
 
   const handleClick = () => setClick(!click);
   return (
-    <header className="header ">
+    <header className="header">
       <nav className={click ? "navbar active" : "navbar"}>
         {links.map(({ id, link, to }: Link) => (
           <NavLink
